@@ -56,26 +56,26 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                        <a href="about.html" class="nav-item nav-link">Acerca</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Vehículos</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="property-list.html" class="dropdown-item">Property List</a>
-                                <a href="property-type.html" class="dropdown-item">Property Type</a>
-                                <a href="property-agent.html" class="dropdown-item">Property Agent</a>
+                                <a href="property-list.html" class="dropdown-item">Lista de vehículos</a>
+                                <a href="property-type.html" class="dropdown-item">Marcas de vehículos</a>
+                                <a href="property-agent.html" class="dropdown-item">Lo más nuevo</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Ejemplo</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Error</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="contact.html" class="nav-item nav-link">Contáctanos</a>
                     </div>
-                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
+                    <a href="#" class="btn btn-primary px-3 d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
                 </div>
             </nav>
         </div>
@@ -909,6 +909,85 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inicio de sesión -->
+                    <form action="bd/login.php" method="POST">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="loginEmail" name="correo_electronico" placeholder="Introduce tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" name="contrasena" placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                    </form>
+                    <p class="text-center mt-3">¿No tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Crear cuenta</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de registro -->
+                    <form action="bd/registro.php" method="POST">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="registerName" name="nombre_completo" placeholder="Introduce tus nombres" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerLastName" class="form-label">Apellido Completo</label>
+                            <input type="text" class="form-control" id="registerLastName" name="apellido_completo" placeholder="Introduce tus apellidos" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="registerEmail" name="correo_electronico" placeholder="Introduce tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" name="contrasena" placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" name="confirmar_contrasena" placeholder="Confirma tu contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
+                    </form>
+                    <p class="text-center mt-3">¿Ya tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Iniciar sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de Iniciar Sesión -->
+    <a href="javascript:void(0)" class="btn btn-primary px-3 d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
+
+        </div>
+
+        <!-- Bootstrap Bundle con Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</div>
+
+
 </body>
 
 </html>
