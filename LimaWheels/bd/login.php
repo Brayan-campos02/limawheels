@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión
-include('bd/conexion.php');
+include('conexion.php');
 
 // Comprobar si se ha enviado el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,14 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuario = $resultado->fetch_assoc();
 
         // Verificar la contraseña
-        if (password_verify($contrasena, $usuario['contrasena'])) {
+        if ($contrasena === $usuario['contrasena']) {
             // Iniciar sesión y redirigir al usuario
             session_start();
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre_completo'] = $usuario['nombre_completo'];
 
             // Redirigir al archivo sesion-iniciada.html
-            header("Location: sesion-iniciada.html");
+            header("Location: /LimaWheels/limawheels/Principal/sesion-iniciada.html");
             exit(); // Asegúrate de que el script se detenga aquí
         } else {
             echo "Contraseña incorrecta.";
@@ -36,15 +36,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
-<!-- Formulario de inicio de sesión -->
-<form action="bd/login.php" method="POST">
-    <label for="correo_electronico">Correo Electrónico:</label>
-    <input type="email" name="correo_electronico" id="correo_electronico" required>
-
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" name="contrasena" id="contrasena" required>
-
-    <button type="submit">Iniciar Sesión</button>
-</form>
-
