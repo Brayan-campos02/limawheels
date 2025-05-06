@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         // Registro exitoso, redirigir
-        header("Location: /LimaWheels/limawheels/Principal/sesion-iniciada.html");
+        header("Location: /trabajofinal/limawheels/Principal/sesion-iniciada.html");
         exit();
     } else {
         echo "Error al crear la cuenta: " . $conn->error;

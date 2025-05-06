@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['nombre_completo'] = $usuario['nombre_completo'];
 
             // Redirigir al archivo sesion-iniciada.html
-            header("Location: /LimaWheels/limawheels/Principal/sesion-iniciada.html");
+            header("Location: /trabajofinal/limawheels/Principal/sesion-iniciada.html");
             exit(); // Asegúrate de que el script se detenga aquí
         } else {
             echo "Contraseña incorrecta.";
