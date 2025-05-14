@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+</head>
+<body>
+    <h1>Bienvenido a Lima Wheels</h1>
+    
+    <!-- Aquí se mostrará el nombre -->
+    <div id="saludo"></div>
+
+    <script>
+        // Obtener nombre desde la URL
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get('nombre');
+
+        if (nombre) {
+            document.getElementById('saludo').innerHTML = `<p>Hola, <strong>${nombre}</strong> 👋</p>`;
+        } else {
+            document.getElementById('saludo').innerHTML = `<p>No se detectó ningún nombre.</p>`;
+        }
+    </script>
+</body>
+</html>
