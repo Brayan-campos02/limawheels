@@ -1,72 +1,28 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2025 a las 20:12:58
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `lima_wheels_bd`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
+-- Create database tables for Lima Wheels
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_completo` varchar(255) NOT NULL,
   `apellido_completo` varchar(255) NOT NULL,
   `correo_electronico` varchar(255) NOT NULL,
-  `contrasena` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `contrasena` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_electronico` (`correo_electronico`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `usuarios`
---
+-- Insert sample user data
+INSERT INTO `usuarios` (`nombre_completo`, `apellido_completo`, `correo_electronico`, `contrasena`) VALUES 
+('Juan Pérez', 'Gómez', 'juan.perez@example.com', 'contraseña123'),
+('Johan', 'Pena', 'johan.pena@usil.pe', '123'),
+('Brayan', 'Campos', 'brayan.campos@usil.pe', '123'),
+('Key', 'Espejo', 'asd@asd.asd', '123');
 
-INSERT INTO `usuarios` (`id`, `nombre_completo`, `apellido_completo`, `correo_electronico`, `contrasena`) VALUES
-(1, 'Juan Pérez', 'Gómez', 'juan.perez@example.com', 'contraseña123'),
-(2, 'Johan', 'Pena', 'johan.pena@usil.pe', '123'),
-(3, 'Brayan', 'Campos', 'brayan.campos@usil.pe', '123'),
-(4, 'Key', 'Espejo', 'asd@asd.asd', '123');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `correo_electronico` (`correo_electronico`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `logs_acceso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(11) NOT NULL,
+  `fecha_hora` datetime NOT NULL DEFAULT current_timestamp(),
+  `ip_address` varchar(45) DEFAULT NULL,
+  `exitoso` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `usuario_id` (`usuario_id`),
+  CONSTRAINT `logs_acceso_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
