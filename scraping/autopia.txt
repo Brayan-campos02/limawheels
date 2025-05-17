@@ -1,0 +1,117 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
+import time
+import re
+
+# Configuración de la base de datos
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '',  # Sin contraseña
+    'database': 'lima_wheels_bd'
+}
+
+# Configuración de Chrome
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+driver = webdriver.Chrome(options=chrome_options)
+
+try:
+    # URL de Autopia.pe
+    url = "https://www.autopia.pe/resultados"
+    driver.get(url)
+    time.sleep(5)  # Esperar a que cargue el contenido dinámico
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    autos = []
+
+    # Extraer los datos de cada auto
+    for auto in soup.find_all('div', class_='car-card'):
+        # Excluir banners que no son autos
+        if auto.find('div', class_='banner'):
+            continue
+
+        # Marca y Modelo
+        titulo = auto.find('h3')
+        if titulo:
+            modelo_completo = titulo.get_text(strip=True)
+            # Extraer solo el modelo (eliminando la marca)
+            modelo = ' '.join(modelo_completo.split()[1:]) if len(modelo_completo.split()) > 1 else modelo_completo
+            marca = modelo_completo.split()[0] if modelo_completo else ""
+
+        # Precio (solo el número en dólares)
+        precio_tag = auto.find('p')
+        if precio_tag:
+            precio_texto = precio_tag.get_text(strip=True)
+            # Extraer solo el número entero del precio en dólares
+            match = re.search(r'\$(\d+,?\d+)', precio_texto)
+            precio = int(match.group(1).replace(',', '')) if match else 0
+        else:
+            precio = 0
+
+        # Imagen
+        img_tag = auto.find('img', attrs={'data-src': True})
+        imagen_url = img_tag['data-src'] if img_tag else ""
+
+        # Descripción (Tipo de vehículo)
+        desc_tag = auto.find('div', class_='small-details')
+        if desc_tag:
+            desc_span = desc_tag.find('span')
+            descripcion = desc_span.get_text(strip=True) if desc_span else ""
+        else:
+            descripcion = ""
+
+        # Condición (modificado a "Seminuevo" como solicitaste)
+        condicion = "Seminuevo"
+
+        if marca and modelo and precio:
+            autos.append({
+                'marca': marca,
+                'modelo': modelo,
+                'precio': precio,
+                'imagen': imagen_url,
+                'descripcion': descripcion,
+                'condicion': condicion
+            })
+
+    # Mostrar resultados en consola
+    print("\n=== RESULTADOS DEL SCRAPING ===")
+    for auto in autos:
+        print(f"marca: {auto['marca']}")
+        print(f"modelo: {auto['modelo']}")
+        print(f"precio: {auto['precio']}")
+        print(f"imagen: {auto['imagen']}")
+        print(f"descripcion: {auto['descripcion']}")
+        print(f"condicion: {auto['condicion']}")
+        print()  # Espacio entre autos
+
+    # Insertar directamente a MySQL
+    try:
+        import pymysql
+
+        connection = pymysql.connect(**DB_CONFIG)
+        with connection.cursor() as cursor:
+            for auto in autos:
+                sql = """INSERT INTO automoviles (marca, modelo, imagen, precio, descripcion, condicion)
+                         VALUES (%s, %s, %s, %s, %s, %s)"""
+                cursor.execute(sql, (
+                    auto['marca'],
+                    auto['modelo'],
+                    auto['imagen'],
+                    auto['precio'],
+                    auto['descripcion'],
+                    auto['condicion']
+                ))
+        connection.commit()
+        print("\n¡Datos insertados correctamente en la base de datos!")
+    except ImportError:
+        print("\n⚠️ Para insertar directamente en MySQL, instala PyMySQL: pip install pymysql")
+    except Exception as e:
+        print(f"\n❌ Error al insertar en MySQL: {e}")
+    finally:
+        if 'connection' in locals() and connection.open:
+            connection.close()
+
+finally:
+    driver.quit()

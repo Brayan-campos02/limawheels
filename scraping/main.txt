@@ -1,0 +1,86 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
+import time
+from urllib.parse import urljoin
+
+# Configuración de Chrome
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+driver = webdriver.Chrome(options=chrome_options)
+
+# Configuración de la base de datos
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '',  # Sin contraseña
+    'database': 'lima_wheels_bd'
+}
+
+try:
+    # Scraping
+    base_url = "https://www.toyotaperu.com.pe"
+    url = base_url + "/listado-modelos-toyota"
+    driver.get(url)
+    time.sleep(3)
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    modelos_toyota = []
+
+    for contenedor in soup.find_all('div', class_='flex flex-col items-center justify-between flex-1 gap-4 pb-6 mx-auto max-w-40'):
+        enlace_modelo = contenedor.find('a')
+        if enlace_modelo and 'Toyota' in enlace_modelo.get_text(strip=True):
+            # Extracción de datos
+            modelo = enlace_modelo.get_text(strip=True).replace('Toyota', '').strip()
+            href = enlace_modelo.get('href', '')
+            descripcion = href.split('/')[-1].split('-')[0].capitalize() if href else ''
+            img_tag = contenedor.find('img')
+            imagen_url = urljoin(base_url, img_tag['src']) if img_tag and img_tag.get('src') else ''
+            precio_div = contenedor.find('div', class_='text-lg leading-tight 2xl:text-1.5xl')
+            precio = float(precio_div.get_text(strip=True).split('o')[0].replace('$', '').replace(',', '')) if precio_div else 0.0
+
+            modelos_toyota.append({
+                'marca': 'Toyota',
+                'modelo': modelo,
+                'descripcion': descripcion,
+                'imagen': imagen_url,
+                'precio': precio,
+                'condicion': 'Nuevo'  # Nuevo campo añadido
+            })
+
+    #Mostrar en consola (para verificación)
+    print("=== DATOS EXTRAÍDOS ===")
+    for item in modelos_toyota:
+        print(f"marca: {item['marca']}")
+        print(f"modelo: {item['modelo']}")
+        print(f"descripción: {item['descripcion']}")
+        print(f"imagen: {item['imagen']}")
+        print(f"precio: {item['precio']}")
+        print(f"condicion: {item['condicion']}")  # Nuevo campo mostrado
+        print("-" * 50)
+
+
+    #Insertar directamente a MySQL
+    try:
+        import pymysql
+        connection = pymysql.connect(**DB_CONFIG)
+        with connection.cursor() as cursor:
+            for item in modelos_toyota:
+                sql = """INSERT INTO automoviles (marca, modelo, imagen, precio, descripcion, condicion) 
+                          VALUES (%s, %s, %s, %s, %s, %s)"""
+                cursor.execute(sql, (
+                    item['marca'],
+                    item['modelo'],
+                    item['imagen'],
+                    item['precio'],
+                    item['descripcion'],
+                    item['condicion']  # Nuevo campo incluido
+                ))
+        connection.commit()
+        print("\n¡Datos insertados correctamente en la base de datos!")
+    except ImportError:
+        print("\n⚠️ Para insertar directamente en MySQL, instala PyMySQL: pip install pymysql")
+    except Exception as e:
+        print(f"\n❌ Error al insertar en MySQL: {e}")
+
+finally:
+    driver.quit()

@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="Principal/css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -139,100 +141,27 @@
         </div>
         <!-- Search End -->
 
-
-        <!-- Category Start -->
-        <div class="container-xxl py-5">
+    <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h2 class="section-title">Promociones Especiales</h2>
-            <p class="section-description">
-                ¡Aprovecha nuestras ofertas exclusivas en vehículos seleccionados!
-            </p>
+                <h2 class="section-title">Promociones Especiales</h2>
+                <p class="section-description">
+                    ¡Aprovecha nuestras ofertas exclusivas en vehículos seleccionados!
+                </p>
             </div>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/toyotacorolla.jpg" class="card-img-top" alt="Toyota Corolla">
-                <div class="card-body">
-                    <h5 class="card-title">Toyota Corolla</h5>
-                    <p class="card-text">Desde $20,000. Excelente rendimiento de combustible.</p>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="contenedor-autos">
+                <!-- Placeholder de carga -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                    <p class="mt-2">Cargando vehículos...</p>
                 </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/fordfiesta.jpg" class="card-img-top" alt="Ford Fiesta">
-                <div class="card-body">
-                    <h5 class="card-title">Ford Fiesta</h5>
-                    <p class="card-text">Desde $18,000. Compacto y ágil para la ciudad.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/hondacivic.jpg" class="card-img-top" alt="Honda Civic">
-                <div class="card-body">
-                    <h5 class="card-title">Honda Civic</h5>
-                    <p class="card-text">Desde $22,000. Diseño moderno y tecnología avanzada.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/toyotahilux.jpg" class="card-img-top" alt="Toyota Hilux">
-                <div class="card-body">
-                    <h5 class="card-title">Toyota Hilux</h5>
-                    <p class="card-text">Desde $30,000. Ideal para trabajo y aventura.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/fordranger.jpg" class="card-img-top" alt="Ford Ranger">
-                <div class="card-body">
-                    <h5 class="card-title">Ford Ranger</h5>
-                    <p class="card-text">Desde $32,000. Potente y resistente.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/hondacr-v.jpg" class="card-img-top" alt="Honda CR-V">
-                <div class="card-body">
-                    <h5 class="card-title">Honda CR-V</h5>
-                    <p class="card-text">Desde $28,000. Espacioso y cómodo.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/chevrolettracker.jpg" class="card-img-top" alt="Chevrolet Tracker">
-                <div class="card-body">
-                    <h5 class="card-title">Chevrolet Tracker</h5>
-                    <p class="card-text">Desde $25,000. Tecnología de punta.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                <img src="img/nissankicks.jpg" class="card-img-top" alt="Nissan Kicks">
-                <div class="card-body">
-                    <h5 class="card-title">Nissan Kicks</h5>
-                    <p class="card-text">Desde $24,000. Estilo y eficiencia.</p>
-                </div>
-                </div>
-            </div>
             </div>
         </div>
-        </div>
+    </div>
+
 
         <!-- Category End -->
 
@@ -980,6 +909,58 @@
 
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contenedor = document.getElementById('contenedor-autos');
+    
+    fetch('bd/autos.php')
+        .then(response => {
+            if (!response.ok) throw new Error('Error en el servidor');
+            return response.json();
+        })
+        .then(resultado => {
+            // Verifica si hay datos válidos
+            if (!resultado.data || !Array.isArray(resultado.data)) {
+                throw new Error('Formato de datos incorrecto');
+            }
+            
+            const autos = resultado.data;
+            
+            if (autos.length === 0) {
+                contenedor.innerHTML = '<div class="col-12 text-center py-5"><p>No hay vehículos disponibles</p></div>';
+                return;
+            }
+            
+            let html = '';
+            autos.forEach(auto => {
+                html += `
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="${auto.imagen}" class="card-img-top" alt="${auto.marca} ${auto.modelo}" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">${auto.marca} ${auto.modelo}</h5>
+                            <p class="card-text">Desde $${parseFloat(auto.precio).toLocaleString('es')}. ${auto.descripcion}</p>
+                            <p class="card-text">Condición: <strong>${auto.condicion}</strong></p>
+                        </div>
+                    </div>
+                </div>`;
+            });
+            contenedor.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            contenedor.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
+                    <h3 class="mt-3">Error al cargar los vehículos</h3>
+                    <p class="text-muted">${error.message}</p>
+                    <button onclick="location.reload()" class="btn btn-primary mt-2">
+                        <i class="bi bi-arrow-clockwise"></i> Reintentar
+                    </button>
+                </div>`;
+        });
+});
+</script>
 
 </body>
 
