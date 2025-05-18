@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $log_stmt->bind_param('isi', $usuario_id, $ip, $exitoso);
             $log_stmt->execute();
 
-            header("Location: /trabajofinal/limawheels/indexusuario.html");
+            header("Location: /indexusuario.html");
             exit();
         }
     }
