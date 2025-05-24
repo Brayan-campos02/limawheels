@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>LimaWheelS - NOSOTROS</title>
+    <title>LimaWheels - Comparador de precios de vehiculos en Perú</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -21,14 +21,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="Principal/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="Principal/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="Principal/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Template comentario extra -->
+    <link href="Principal/css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -43,46 +46,28 @@
 
 
         <!-- Navbar Start -->
-        <div class="container-fluid nav-bar bg-transparent">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a href="../index.html" class="navbar-brand d-flex align-items-center text-center">
-                    <div class="icon p-2 me-2">
-                        <img class="img-fluid" src="img/limawheels.png" alt="Icon" style="width: 30px; height: 30px;">
-                    </div>
-                    <h1 class="m-0 text-primary">LimaWheels</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="../index.html" class="nav-item nav-link">INICIO</a>
-                        <a href="about.html" class="nav-item nav-link active">NOSOTROS</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">VEHICULOS</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="property-list.html" class="dropdown-item">TODOS</a>
-                                <a href="property-type.html" class="dropdown-item">TIPO DE VEHICULO</a>
-                                <a href="property-agent.html" class="dropdown-item">LUGAR</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">SERVICIOS</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="testimonial.html" class="dropdown-item">REPARACIÓN</a>
-                                <a href="404.html" class="dropdown-item">PINTURA</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">CONTACTANOS</a>
-                    </div>
-                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">+ AGREGAR VEHICULO</a>
-                </div>
-            </nav>
+    <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
+    <a href="index.html" class="navbar-brand px-lg-4 m-0">
+        <h1 class="m-0 text-primary">LimaWheels</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto px-lg-4">
+            <a href="index.html" class="nav-item nav-link">Inicio</a>
+            <a href="nosotros.html" class="nav-item nav-link active">Nosotros</a>
+            <a href="vehiculos.html" class="nav-item nav-link">Vehículos</a>
+            <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+            <a href="contactos.html" class="nav-item nav-link">Contacto</a>
+
         </div>
-        <!-- Navbar End -->
 
+    </div>
+</div>
+<!-- Navbar End -->
 
-        <!-- Header Start -->
+<!-- Header Start -->
         <div class="container-fluid header bg-white p-0">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
                 <div class="col-md-6 p-5 mt-lg-5">
@@ -311,22 +296,72 @@
             </div>
         </div>
         <!-- Footer End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="Principal/lib/wow/wow.min.js"></script>
+    <script src="Principal/lib/easing/easing.min.js"></script>
+    <script src="Principal/lib/waypoints/waypoints.min.js"></script>
+    <script src="Principal/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="Principal\js\main.js"></script>
+
+    <!-- Modal de Inicio de Sesión -->
+    
+
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de registro -->
+                    <form action="bd\registro.php" method="POST">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="registerName" name="nombre_completo" placeholder="Introduce tus nombres" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerLastName" class="form-label">Apellido Completo</label>
+                            <input type="text" class="form-control" id="registerLastName" name="apellido_completo" placeholder="Introduce tus apellidos" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="registerEmail" name="correo_electronico" placeholder="Introduce tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" name="contrasena" placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" name="confirmar_contrasena" placeholder="Confirma tu contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
+                    </form>
+                    <p class="text-center mt-3">¿Ya tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Iniciar sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+        </div>
+
+ 
+
+        <!-- Bootstrap Bundle con Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</div>
+
 </body>
 
 </html>
