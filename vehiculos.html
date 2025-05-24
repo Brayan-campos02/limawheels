@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>LimaWheels - Comparador de precios de vehiculos en Perú</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="Principal/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="Principal/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="Principal/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <!-- Template comentario extra -->
+    <link href="Principal/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+    <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
+    <a href="index.html" class="navbar-brand px-lg-4 m-0">
+        <h1 class="m-0 text-primary">LimaWheels</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto px-lg-4">
+            <a href="index.html" class="nav-item nav-link active">Inicio</a>
+            <a href="Principal/about.html" class="nav-item nav-link">Nosotros</a>
+            <a href="Principal/product.html" class="nav-item nav-link">Vehículos</a>
+            <a href="Principal/service.html" class="nav-item nav-link">Servicios</a>
+            <a href="Principal/contact.html" class="nav-item nav-link">Contacto</a>
+
+            <div class="d-flex align-items-center ms-lg-3">
+                <button class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Navbar End -->
+
+<div style="height: 90px;"></div>
+
+
+        <!-- Header Start -->
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4">Encuentra el <span class="text-primary">vehiculo perfecto</span> para ti</h1>
+                    <p class="animated fadeIn mb-4 pb-2">Compara precios, modelos, marcas y mucho mas en un solo lugar con LimaWheels</p>
+                    <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Empecemos</a>
+                </div>
+                <div class="col-md-6 animated fadeIn">
+                    <div class="owl-carousel header-carousel">
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/toyotacorolla.jpg" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/hondacivic.jpg" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/hondacr-v.jpg" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/toyotahilux.jpg" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/nissankicks.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+         <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+    <div class="container">
+        <div class="row g-2">
+            <div class="col-md-10">
+                <div class="row g-2">
+                    <div class="col-md-3">
+                        <input type="text" id="filtro-marca" class="form-control border-0 py-3" placeholder="Marca (ej. Toyota)">
+                    </div>
+                    <div class="col-md-3">
+                        <select id="filtro-modelo" class="form-select border-0 py-3">
+                            <option value="">Todos los modelos</option>
+                            <option value="Corolla">Corolla</option>
+                            <option value="Tucson">Tucson</option>
+                            <option value="Elantra">Elantra</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="filtro-condicion" class="form-select border-0 py-3">
+                            <option value="">Todas las condiciones</option>
+                            <option value="Nuevo">Nuevo</option>
+                            <option value="Usado">Usado</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="filtro-precio-max" class="form-control border-0 py-3" placeholder="Precio máx. (ej. 30000)">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button id="btn-filtrar" class="btn btn-dark border-0 w-100 py-3">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h2 class="section-title">Promociones Especiales</h2>
+                <p class="section-description">
+                    ¡Aprovecha nuestras ofertas exclusivas en vehículos seleccionados!
+                </p>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="contenedor-autos">
+                <!-- Placeholder de carga -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                    <p class="mt-2">Cargando vehículos...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer Start -->
+        <!-- Footer Start PIE DE PAGINA -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Get In Touch</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Photo Gallery</h5>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Principal/lib/wow/wow.min.js"></script>
+    <script src="Principal/lib/easing/easing.min.js"></script>
+    <script src="Principal/lib/waypoints/waypoints.min.js"></script>
+    <script src="Principal/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="Principal\js\main.js"></script>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de inicio de sesión -->
+                    <form action="bd\login.php" method="POST"> 
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="loginEmail" name="correo_electronico" placeholder="Introduce tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" name="contrasena" placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                    </form>
+                    <p class="text-center mt-3">¿No tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Crear cuenta</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de registro -->
+                    <form action="bd\registro.php" method="POST">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="registerName" name="nombre_completo" placeholder="Introduce tus nombres" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerLastName" class="form-label">Apellido Completo</label>
+                            <input type="text" class="form-control" id="registerLastName" name="apellido_completo" placeholder="Introduce tus apellidos" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="registerEmail" name="correo_electronico" placeholder="Introduce tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" name="contrasena" placeholder="Introduce tu contraseña" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" name="confirmar_contrasena" placeholder="Confirma tu contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
+                    </form>
+                    <p class="text-center mt-3">¿Ya tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Iniciar sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de Iniciar Sesión -->
+    <a href="javascript:void(0)" class="btn btn-primary px-3 d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
+
+        </div>
+
+        <!-- Bootstrap Bundle con Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contenedor = document.getElementById('contenedor-autos');
+    let autos = [];
+
+    function renderAutos(filtrados) {
+        if (filtrados.length === 0) {
+            contenedor.innerHTML = '<div class="col-12 text-center py-5"><p>No hay vehículos disponibles</p></div>';
+            return;
+        }
+
+        let html = '';
+        filtrados.forEach(auto => {
+            html += `
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="${auto.imagen}" class="card-img-top" alt="${auto.marca} ${auto.modelo}" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">${auto.marca} ${auto.modelo}</h5>
+                            <p class="card-text">Desde $${parseFloat(auto.precio).toLocaleString('es')}. ${auto.descripcion}</p>
+                            <p class="card-text">Condición: <strong>${auto.condicion}</strong></p>
+                        </div>
+                    </div>
+                </div>`;
+        });
+        contenedor.innerHTML = html;
+    }
+
+    function aplicarFiltros() {
+        const marca = document.getElementById('filtro-marca').value.toLowerCase();
+        const modelo = document.getElementById('filtro-modelo').value;
+        const condicion = document.getElementById('filtro-condicion').value;
+        const precioMax = parseFloat(document.getElementById('filtro-precio-max').value);
+
+        const filtrados = autos.filter(auto => {
+            const coincideMarca = auto.marca.toLowerCase().includes(marca);
+            const coincideModelo = modelo ? auto.modelo === modelo : true;
+            const coincideCondicion = condicion ? auto.condicion === condicion : true;
+            const coincidePrecio = !isNaN(precioMax) ? parseFloat(auto.precio) <= precioMax : true;
+            return coincideMarca && coincideModelo && coincideCondicion && coincidePrecio;
+        });
+
+        renderAutos(filtrados);
+    }
+
+    fetch('bd/autos.php')
+        .then(response => {
+            if (!response.ok) throw new Error('Error en el servidor');
+            return response.json();
+        })
+        .then(resultado => {
+            if (!resultado.data || !Array.isArray(resultado.data)) {
+                throw new Error('Formato de datos incorrecto');
+            }
+
+            autos = resultado.data;
+            renderAutos(autos);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            contenedor.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
+                    <h3 class="mt-3">Error al cargar los vehículos</h3>
+                    <p class="text-muted">${error.message}</p>
+                    <button onclick="location.reload()" class="btn btn-primary mt-2">
+                        <i class="bi bi-arrow-clockwise"></i> Reintentar
+                    </button>
+                </div>`;
+        });
+
+    document.getElementById('btn-filtrar').addEventListener('click', aplicarFiltros);
+});
+</script>
+
+</body>
+
+</html>
