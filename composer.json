@@ -1,0 +1,17 @@
+{
+    "name": "limawheels/proyecto",
+    "description": "Proyecto LimaWheels",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
