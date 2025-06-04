@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param('ssss', $nombre_completo, $apellido_completo, $correo_electronico, $contrasena_hash);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registro exitoso.'); window.location.href = '/indexusuario.html';</script>";
+        echo "<script>alert('Registro exitoso.'); window.location.href = '/trabajofinal/limawheels/indexusuario.html';</script>";
         exit();
     } else {
         echo "<script>alert('Error al crear la cuenta: " . $conn->error . "'); window.history.back();</script>";
