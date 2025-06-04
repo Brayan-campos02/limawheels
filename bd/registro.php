@@ -14,12 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (
-        strlen($contrasena) < 12 ||
+        strlen($contrasena) < 8 ||
         !preg_match('/[A-Z]/', $contrasena) ||
         !preg_match('/[0-9]/', $contrasena) ||
         !preg_match('/[\W_]/', $contrasena)
     ) {
-        echo "<script>alert('La contraseña debe tener al menos 12 caracteres, una letra mayúscula, un número y un carácter especial.'); window.history.back();</script>";
+        echo "<script>alert('La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.'); window.history.back();</script>";
         exit();
     }
 
