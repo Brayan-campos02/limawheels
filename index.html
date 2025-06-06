@@ -591,6 +591,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 </script>
+<script>
+// Verificar si viene de un logout
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('from') && urlParams.get('from') === 'logout') {
+        // Mostrar notificación de cierre de sesión
+        alert('Has cerrado sesión correctamente.');
+        
+        // Limpiar el parámetro de la URL sin recargar
+        history.replaceState(null, '', window.location.pathname);
+    }
+});
+</script>
 
 </body>
 
