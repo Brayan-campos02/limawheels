@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuario = $resultado->fetch_assoc();
         $usuario_id = $usuario['id'];
 
-        // Verifica la contraseña usando password_verify
         if (password_verify($contrasena, $usuario['contrasena'])) {
             $exitoso = 1;
 
@@ -32,10 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $log_stmt->bind_param('isi', $usuario_id, $ip, $exitoso);
             $log_stmt->execute();
 
-            header("Location: /trabajofinal/limawheels/indexusuario.html");
+            // Redirección corregida:
+            header("Location: ../indexusuario.html");
             exit();
         }
     }
+
 
     // Log de intento fallido
     $log_sql = "INSERT INTO logs_acceso (usuario_id, ip_address, exitoso) VALUES (?, ?, ?)";

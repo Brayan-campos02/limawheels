@@ -88,5 +88,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "<script>alert('Error al crear la cuenta: " . $conn->error . "'); window.history.back();</script>";
     }
+
+    if ($stmt->execute()) {
+    // Iniciar sesión automáticamente
+    session_start();
+    $_SESSION['usuario_id'] = $conn->insert_id; // ID del nuevo usuario
+    $_SESSION['nombre_completo'] = $nombre_completo;
+    
+    // Redirigir a página PHP que puede manejar sesiones
+    header("Location: perfil.php");
+    exit();
+    }
 }
 ?>
