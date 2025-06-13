@@ -341,7 +341,10 @@ document.addEventListener('DOMContentLoaded', function() {
         filtrados.forEach(auto => {
             html += `
                 <div class="col">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100 shadow-sm"
+                    onmouseover="this.style.border='1px solid #00B98E'; this.style.cursor='pointer'"
+                    onmouseout="this.style.borderColor=''; this.style.cursor='default'"
+                    onclick="window.location.href='${auto.url}'">
                         <img src="${auto.imagen}" class="card-img-top" alt="${auto.marca} ${auto.modelo}" style="height: 180px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title">${auto.marca} ${auto.modelo}</h5>
