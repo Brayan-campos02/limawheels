@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 require_once 'conexion.php';
 
 try {
-    $query = "SELECT marca, modelo, imagen, precio, descripcion, condicion FROM automoviles";
+    $query = "SELECT marca, modelo, imagen, precio, descripcion, condicion, url FROM automoviles";
     $result = $conn->query($query);
     
     $autos = [];
