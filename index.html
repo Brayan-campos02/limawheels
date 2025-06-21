@@ -31,6 +31,9 @@
     <!-- Template comentario extra -->
     <link href="Principal/css/style.css" rel="stylesheet">
 
+    
+    
+
 
 </head>
 
@@ -131,10 +134,24 @@
         <!-- Category End -->
 
 
-        <!-- About Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
+        
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Publicidad izquierda -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="publicidad-box text-center p-3 bg-light rounded shadow-sm">
+                    <h6 class="text-primary">Publicidad</h6>
+                    <img src="img/publicidad3.jpg" class="img-fluid mb-2 rounded" alt="Publicidad">
+                    <p style="font-size: 14px;"></p>
+                
+                </div>
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="col-lg-9">
+                <div class="row g-4 align-items-center">
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="about-img position-relative overflow-hidden p-5 pe-0">
                             <img class="img-fluid w-100" src="img/portada2.jpeg">
@@ -146,12 +163,14 @@
                         <p><i class="fa fa-check text-primary me-3"></i>Gran variedad de modelos y marcas</p>
                         <p><i class="fa fa-check text-primary me-3"></i>Atención personalizada y confiable</p>
                         <p><i class="fa fa-check text-primary me-3"></i>Precios competitivos y planes de financiamiento</p>
-                        
                     </div>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+    </div>
+</div>
+<!-- About End -->
+
 
 
 
@@ -576,5 +595,15 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 </body>
+<div class="position-fixed start-0 top-50 translate-middle-y publicidad-lateral d-none d-lg-block">
+    <h6 class="text-primary">Publicidad</h6>
+    <a href="https://www.mazda.pe/vehiculo/mazda-bt-50/" target="_blank">
+        <img src="img/publicidad2.jpg" alt="Publicidad" class="img-publicidad rounded mb-2">
+    </a>
+</div>
+
+</div>
+
+
 
 </html>

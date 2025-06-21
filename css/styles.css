@@ -1,3 +1,4 @@
+
 body {
     background-color: #f8f9fa;
 }
@@ -85,4 +86,39 @@ h1, h2 {
     .navbar-brand {
         margin-bottom: 10px; /* Espacio debajo del logo */
     }
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-left: 240px; /* Debe ser igual o mayor al width de .publicidad-lateral + algo de espacio */
+    }
+}
+
+.publicidad-lateral {
+    width: 220px;
+
+.publicidad-lateral {
+    width: 100px; /* Cambia este valor para modificar el ancho */
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1030;
+    text-align: center;
+}
+
+.img-publicidad {
+    width: 200%;       /* Se ajusta al ancho del contenedor */
+    height: 200px;      /* Mantiene proporción */
+    max-height: 100px; /* Cambia este valor para limitar la altura */
+    object-fit: contain;
+}
+
+@media (max-width: 700px) {
+    .publicidad-lateral {
+        display: none;
+    }
+}
+
 }
