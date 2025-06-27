@@ -32,6 +32,34 @@
     <link href="Principal/css/style.css" rel="stylesheet">
 
 
+    <style>
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .user-name {
+            font-weight: 500;
+            color: #333;
+            margin-right: 10px;
+        }
+        .nav-user {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-color: #00B98E;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <!-- Popup Cita -->
 <div id="popupCita" style="display:none; position:fixed; top:80px; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.4); z-index:2000; max-width:400px; width:90%;">
@@ -105,33 +133,37 @@
         </div>
         <!-- Spinner End -->
 
-
         <!-- Navbar Start -->
-    <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
-    <a href="index.html" class="navbar-brand px-lg-4 m-0">
-        <h1 class="m-0 text-primary">LimaWheels</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto px-lg-4">
-            <a href="index.html" class="nav-item nav-link">Inicio</a>
-            <a href="nosotros.html" class="nav-item nav-link active">Nosotros</a>
-            <a href="vehiculos.html" class="nav-item nav-link">Vehículos</a>
-            <a href="servicios.html" class="nav-item nav-link">Servicios</a>
-            <a href="contactos.html" class="nav-item nav-link">Contacto</a>
+        <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 text-primary">LimaWheels</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto px-lg-4">
+                    <a href="indexusuario.html" class="nav-item nav-link">Inicio</a>
+                    <a href="nosotrosusuario.html" class="nav-item nav-link active">Nosotros</a>
+                    <a href="vehiculosusuario.html" class="nav-item nav-link">Vehículos</a>
+                    <a href="serviciosusuario.html" class="nav-item nav-link">Servicios</a>
+                    <a href="contactosusuario.html" class="nav-item nav-link">Contacto</a>
 
-            <div class="d-flex align-items-center ms-lg-3">
-                <button class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    Iniciar Sesión
-                </button>
+                    <!-- Área del usuario -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-2" style="font-size: 1.5rem;"></i>
+                            <span class="user-name"><?php echo $_SESSION['nombre_completo'] ?? 'Usuario'; ?></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="perfil.html" class="dropdown-item"><i class="fas fa-user me-2"></i> Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="bd/logout.php" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-    </div>
-</div>
 <!-- Navbar End -->
 
 

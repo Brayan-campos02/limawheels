@@ -1,56 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Mi Perfil - LimaWheels</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="Principal/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="Principal/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="Principal/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
     <link href="Principal/css/style.css" rel="stylesheet">
+
     <style>
-        .profile-card {
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         }
-        .password-toggle {
-            cursor: pointer;
+        .user-name {
+            font-weight: 500;
+            color: #333;
+            margin-right: 10px;
         }
-        .hashed-password {
-            font-family: monospace;
-            background-color: #f8f9fa;
-            padding: 5px;
-            border-radius: 4px;
+        .nav-user {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-color: #00B98E;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR CON LOGO Y USUARIO -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="indexusuario.html">
-                <img src="Principal/img/logo.png" alt="LimaWheels Logo" width="40" height="40" class="me-2">
-                <span class="fw-bold">LimaWheels</span>
-            </a>
-            <?php if (isset($_SESSION['usuario_id'])): ?>
-                <div class="dropdown ms-auto">
-                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?= $datos_usuario['nombre_completo'] ?>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="perfil.php?ver_perfil=1">Mi Perfil</a></li>
-                        <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
-                    </ul>
-                </div>
-            <?php endif; ?>
+    <div id="banner-izquierdo">
+        <div class="anuncio-carrusel">
+            <img src="img/publicidad1.png" alt="Anuncio 1">
+            <img src="img/publicidad2.png" alt="Anuncio 2">
+            <img src="img/publicidad3.png" alt="Anuncio 3">
+            <img src="img/publicidad4.png" alt="Anuncio 4">
+            <img src="img/publicidad5.png" alt="Anuncio 5">
         </div>
-    </nav>
+    </div>
 
+    <div class="container-xxl bg-white p-0">
+
+        <!-- Navbar Start -->
+        <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 text-primary">LimaWheels</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto px-lg-4">
+                    <a href="indexusuario.html" class="nav-item nav-link">Inicio</a>
+                    <a href="nosotrosusuario.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="vehiculosusuario.html" class="nav-item nav-link">Vehículos</a>
+                    <a href="serviciosusuario.html" class="nav-item nav-link">Servicios</a>
+                    <a href="contactosusuario.html" class="nav-item nav-link">Contacto</a>
+
+                    <!-- Área del usuario -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle nav-user active" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-2" style="font-size: 1.5rem;"></i>
+                            <span class="user-name"><?php echo $_SESSION['nombre_completo'] ?? 'Usuario'; ?></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="perfil.html" class="dropdown-item"><i class="fas fa-user me-2"></i> Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="bd/logout.php" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card profile-card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Mi Perfil</h4>
+                    <div class="card-header text-white" style="background-color: #00B98E;">
+                        <h4 class="mb-0" style="color: #FFFFFF;">Mi Perfil</h4>
                     </div>
                     <div class="card-body">
                         
@@ -113,7 +174,10 @@
                                         </span>
                                     </div>
                                 </div>
-                                <button type="submit" name="cambiar_contrasena" class="btn btn-primary">Cambiar Contraseña</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='indexusuario.html'">
+                                    Cambiar Contraseña
+                                </button>
+
                             </form>
                         </div>
                     </div>

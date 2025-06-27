@@ -32,6 +32,15 @@
 </head>
 
 <body>
+    <div id="banner-izquierdo">
+        <div class="anuncio-carrusel">
+            <img src="img/publicidad1.png" alt="Anuncio 1">
+            <img src="img/publicidad2.png" alt="Anuncio 2">
+            <img src="img/publicidad3.png" alt="Anuncio 3">
+            <img src="img/publicidad4.png" alt="Anuncio 4">
+            <img src="img/publicidad5.png" alt="Anuncio 5">
+        </div>
+    </div>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -93,7 +102,7 @@
             </div>
             <div class="mb-3">
                 <label for="correo" class="form-label">Tu Correo</label>
-                <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" required>
+                <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" maxlength="50" required>
             </div>
             <div class="mb-3">
                 <label for="asunto" class="form-label">Asunto</label>
@@ -102,7 +111,7 @@
             </div>
             <div class="mb-3">
                 <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."
+                <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí.../máx. 250"
                         maxlength="250" required></textarea>
             </div>
             <button type="submit" class="btn btn-success">Enviar Mensaje</button>
@@ -219,28 +228,28 @@
                     <!-- Formulario de registro -->
                     <form action="bd\registro.php" method="POST">
                         <div class="mb-3">
-                            <label for="registerName" class="form-label">Nombre Completo</label>
+                            <label for="registerName" class="form-label" style="color: #666565;">Nombre Completo</label>
                             <input type="text" class="form-control" id="registerName" name="nombre_completo" placeholder="Introduce tus nombres" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerLastName" class="form-label">Apellido Completo</label>
+                            <label for="registerLastName" class="form-label" style="color: #666565;">Apellido Completo</label>
                             <input type="text" class="form-control" id="registerLastName" name="apellido_completo" placeholder="Introduce tus apellidos" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+                            <label for="registerEmail" class="form-label" style="color: #666565;">Correo Electrónico</label>
                             <input type="email" class="form-control" id="registerEmail" name="correo_electronico" placeholder="Introduce tu correo electrónico" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <label for="registerPassword" class="form-label" style="color: #666565;">Contraseña</label>
                             <input type="password" class="form-control" id="registerPassword" name="contrasena" placeholder="Introduce tu contraseña" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <label for="registerConfirmPassword" class="form-label" style="color: #666565;">Confirmar Contraseña</label>
                             <input type="password" class="form-control" id="registerConfirmPassword" name="confirmar_contrasena" placeholder="Confirma tu contraseña" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
                     </form>
-                    <p class="text-center mt-3">¿Ya tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Iniciar sesión</a></p>
+                    <p class="text-center mt-3" style="color: #666565;">¿Ya tienes cuenta? <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Iniciar sesión</a></p>
                 </div>
             </div>
         </div>

@@ -28,7 +28,9 @@
     <link href="Principal/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
+    <!-- Template comentario extra -->
     <link href="Principal/css/style.css" rel="stylesheet">
+
 
     <style>
         .dropdown-menu {
@@ -91,7 +93,7 @@
                 <div class="navbar-nav ms-auto px-lg-4">
                     <a href="indexusuario.html" class="nav-item nav-link active">Inicio</a>
                     <a href="nosotrosusuario.html" class="nav-item nav-link">Nosotros</a>
-                    <a href="vehiculosusuario.html" class="nav-item nav-link">Vehículos</a>
+                    <a href="vehiculosusuario.html" class="nav-item nav-link active">Vehículos</a>
                     <a href="serviciosusuario.html" class="nav-item nav-link">Servicios</a>
                     <a href="contactosusuario.html" class="nav-item nav-link">Contacto</a>
 
@@ -110,6 +112,7 @@
                 </div>
             </div>
         </div>
+<!-- Navbar End -->
 
 <div style="height: 90px;"></div>
 
@@ -120,7 +123,7 @@
                 <div class="col-md-6 p-5 mt-lg-5">
                     <h1 class="display-5 animated fadeIn mb-4">Encuentra el <span class="text-primary">vehiculo perfecto</span> para ti</h1>
                     <p class="animated fadeIn mb-4 pb-2">Compara precios, modelos, marcas y mucho mas en un solo lugar con LimaWheels</p>
-                    <a href="vehiculos.html" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Empecemos</a>
+                
                 </div>
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
@@ -145,261 +148,69 @@
         </div>
         <!-- Header End -->
 
+
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <input type="text" id="filtro-marca" maxlength="15" class="form-control border-0 py-3" placeholder="Marca (ej. Toyota)">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" id="filtro-modelo" maxlength="15" class="form-control border-0 py-3" placeholder="Modelo (ej. Agya)">
+                            </div>
+                            <div class="col-md-3">
+                                <select id="filtro-condicion" class="form-select border-0 py-3">
+                                    <option value="">Todas las condiciones</option>
+                                    <option value="Nuevo">Nuevo</option>
+                                    <option value="Seminuevo">Seminuevo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="filtro-precio-max" class="form-control border-0 py-3" placeholder="Precio máx. (ej. 30000)" max="999999">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="btn-filtrar" class="btn btn-dark border-0 w-100 py-3">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h2 class="section-title">¡Todos Reunidos para Ti!</h2>
+                <h2 class="section-title">Catálogo de Vehículos</h2>
                 <p class="section-description">
-                    ¡Hecha un vistazo a nuestro <a href="vehiculos.html">catálogo</a>!
+                    ¡Encuentra tu próximo auto entre múltiples fuentes en una sola vista!
                 </p>
             </div>
 
-
-            <div class="owl-carousel owl-autos-carousel wow fadeInUp" data-wow-delay="0.1s" id="contenedor-autos">
-            
-            </div>
-        </div>
-    </div>
-
-
-        <!-- Category End -->
-
-
-        
-<!-- About Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-5">
-            <!-- Publicidad izquierda -->
-            <div class="col-lg-3 d-none d-lg-block">
-                <div class="publicidad-box text-center p-3 bg-light rounded shadow-sm">
-                    <h6 class="text-primary">Publicidad</h6>
-                    <img src="img/publicidad3.jpg" class="img-fluid mb-2 rounded" alt="Publicidad">
-                    <p style="font-size: 14px;"></p>
-                
-                </div>
-            </div>
-
-            <!-- Contenido principal -->
-            <div class="col-lg-9">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                            <img class="img-fluid w-100" src="img/portada2.jpeg">
-                        </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="contenedor-autos">
+                <!-- Placeholder de carga -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">El mejor lugar para encontrar tu auto ideal</h1>
-                        <p class="mb-4">Encuentra el vehículo que se adapta a tu estilo y necesidades. Ofrecemos variedad, confianza y asesoría personalizada para que tomes la mejor decisión. ¡Conduce con seguridad y estilo!</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Gran variedad de modelos y marcas</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Atención personalizada y confiable</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Precios competitivos y planes de financiamiento</p>
-                    </div>
+                    <p class="mt-2">Cargando vehículos...</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- About End -->
-
-
-
-
-
-
-        <!-- Team Start -->
-        <style>
-    .team-item {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background: #fff;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        border-radius: 10px;
-        transition: 0.3s;
-    }
-
-    .team-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .team-item img {
-        height: 150px;
-        width: 100%;
-        object-fit: contain;
-        padding: 20px;
-        background-color: #fff;
-    }
-
-    .team-social {
-        margin-top: 10px;
-    }
-
-    .btn-square {
-        width: 35px;
-        height: 35px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        border-radius: 50%;
-        background-color: #f0f0f0;
-        color: #000;
-    }
-
-    .btn-square:hover {
-        background-color: #007bff;
-        color: #fff;
-    }
-
-    .team-text {
-        text-align: center;
-        padding: 20px;
-    }
-</style>
-
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3">Concesionarias Aliadas</h1>
-            <p>Colaboramos con las principales concesionarias de vehículos nuevos y seminuevos en Perú para brindarte las mejores opciones del mercado.</p>
-        </div>
-        <div class="row g-4">
-
-            <!-- Toyota -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item rounded">
-                    <img src="img/toyota.png" alt="Toyota Perú">
-                    <div class="team-text">
-                        <h5 class="fw-bold mb-0">Toyota</h5>
-                        <small>Concesionaria Oficial</small>
-                        <div class="team-social d-flex justify-content-center mt-2">
-                            <a class="btn btn-square mx-1" href="https://www.facebook.com/Toyota"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href="https://twitter.com/Toyota"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href="https://www.instagram.com/toyota/"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Honda -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-item rounded">
-                    <img src="img/honda.png" alt="Honda Perú">
-                    <div class="team-text">
-                        <h5 class="fw-bold mb-0">Honda</h5>
-                        <small>Concesionaria Oficial</small>
-                        <div class="team-social d-flex justify-content-center mt-2">
-                            <a class="btn btn-square mx-1" href="https://www.facebook.com/Honda"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href="https://twitter.com/Honda"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href="https://www.instagram.com/honda/"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Derco -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-item rounded">
-                    <img src="img/derco.jpeg" alt="Derco Perú">
-                    <div class="team-text">
-                        <h5 class="fw-bold mb-0">Derco</h5>
-                        <small>Distribuidor Multimarca</small>
-                        <div class="team-social d-flex justify-content-center mt-2">
-                            <a class="btn btn-square mx-1" href="https://www.facebook.com/dercocenterpe/?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href="https://x.com/dercocenter"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href="https://www.instagram.com/dercocenterperu/?hl=es"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Grupo Pana -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="team-item rounded">
-                    <img src="img/pana.png" alt="Grupo Pana">
-                    <div class="team-text">
-                        <h5 class="fw-bold mb-0">Grupo Pana</h5>
-                        <small>Distribuidor Autorizado Mitsubishi</small>
-                        <div class="team-social d-flex justify-content-center mt-2">
-                            <a class="btn btn-square mx-1" href="https://www.facebook.com/GrupoPana"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square mx-1" href="https://twitter.com/GrupoPana"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square mx-1" href="https://www.instagram.com/grupopanaoficial/?hl=es"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-
-        <!-- Team End -->
-
-
-        <!-- Testimonial Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">¡Lo que opinan nuestros usuarios!</h1>
-                    <p>Con nuestra plataforma puedes comparar precios y ofertas de distintas concesionarias en un solo lugar. Ya no necesitas visitar múltiples páginas para encontrar el mejor precio o la marca ideal. Nosotros lo hacemos por ti.</p>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>Gracias a esta plataforma encontré el auto que quería al mejor precio, sin tener que buscar en muchas páginas.</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="img/foto1.jpeg" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Carlos Ramírez</h6>
-                                    <small>Ingeniero</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>Es muy fácil de usar y te muestra todas las opciones disponibles en un solo clic. ¡Altamente recomendada!</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="img/fotom1.jpeg" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Lucía Fernández</h6>
-                                    <small>Administradora</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>Encontré mi nuevo auto en menos de una semana. La comparación de precios me ayudó a tomar una mejor decisión.</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="img/foto3.png" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Diego Torres</h6>
-                                    <small>Diseñador Gráfico</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Testimonial End -->
-        
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Contáctanos</h5>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Calle Toulon 381, Lima, Perú</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+51 987 654 321</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>autoinfo@limawheels.com</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>batmaninfo@limawheels.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="https://x.com/LimaWheels" title="X">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="height: 16px; width: 16px; fill: white;">
@@ -444,9 +255,10 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Boletín</h5>
-                <p>Informate de promociones y novedades del mundo automotriz.</p>
+                <p>Recibe las últimas ofertas, promociones y novedades del mundo automotriz.</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-
+                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Correo Electrónico">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Suscribirse</button>
                 </div>
             </div>
         </div>
@@ -461,8 +273,6 @@
         </div>
     </div>
 </div>
-
-
         <!-- Footer End -->
 
 
@@ -548,7 +358,8 @@
         </div>
     </div>
 
-   
+    <!-- Botón de Iniciar Sesión -->
+    
         </div>
 
         <!-- Bootstrap Bundle con Popper -->
@@ -556,10 +367,53 @@
 
 </div>
 
-
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const contenedor = document.getElementById('contenedor-autos');
+    let autos = [];
+
+    function renderAutos(filtrados) {
+        if (filtrados.length === 0) {
+            contenedor.innerHTML = '<div class="col-12 text-center py-5"><p>No hay vehículos disponibles</p></div>';
+            return;
+        }
+
+        let html = '';
+        filtrados.forEach(auto => {
+            html += `
+                <div class="col">
+                    <div class="card h-100 shadow-sm"
+                    onmouseover="this.style.border='1px solid #00B98E'; this.style.cursor='pointer'"
+                    onmouseout="this.style.borderColor=''; this.style.cursor='default'"
+                    onclick="window.location.href='${auto.url}'">
+                        <img src="${auto.imagen}" class="card-img-top" alt="${auto.marca} ${auto.modelo}" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">${auto.marca} ${auto.modelo}</h5>
+                            <p class="card-text">Desde $${parseFloat(auto.precio).toLocaleString('es')}. ${auto.descripcion}</p>
+                            <p class="card-text">Condición: <strong>${auto.condicion}</strong></p>
+                        </div>
+                    </div>
+                </div>`;
+        });
+        contenedor.innerHTML = html;
+    }
+
+    function aplicarFiltros() {
+        const marca = document.getElementById('filtro-marca').value.toLowerCase();
+        const modelo = document.getElementById('filtro-modelo').value;
+        const condicion = document.getElementById('filtro-condicion').value;
+        const precioMax = parseFloat(document.getElementById('filtro-precio-max').value);
+
+        const filtrados = autos.filter(auto => {
+            const coincideMarca = auto.marca.toLowerCase().includes(marca);
+            const coincideModelo = modelo ? auto.modelo === modelo : true;
+            const coincideCondicion = condicion ? auto.condicion === condicion : true;
+            const coincidePrecio = !isNaN(precioMax) ? parseFloat(auto.precio) <= precioMax : true;
+            return coincideMarca && coincideModelo && coincideCondicion && coincidePrecio;
+        });
+
+        renderAutos(filtrados);
+    }
 
     fetch('bd/autos.php')
         .then(response => {
@@ -571,56 +425,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error('Formato de datos incorrecto');
             }
 
-            const autos = resultado.data;
-
-            if (autos.length === 0) {
-                contenedor.innerHTML = `
-                    <div class="text-center py-5">
-                        <p>No hay vehículos disponibles</p>
-                    </div>`;
-                return;
-            }
-
-            let html = '';
-            autos.forEach(auto => {
-                html += `
-                <div class="item">
-                    <div class="card h-100 shadow-sm"
-                        onmouseover="this.style.border='1px solid #00B98E'; this.style.cursor='pointer'"
-                        onmouseout="this.style.borderColor=''; this.style.cursor='default'"
-                        onclick="window.location.href='${auto.url}'">
-                        <img src="${auto.imagen}" class="card-img-top" alt="${auto.marca} ${auto.modelo}" style="height: 180px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">${auto.marca} ${auto.modelo}</h5>
-                            <p class="card-text">Desde $${parseFloat(auto.precio).toLocaleString('es')}. ${auto.descripcion}</p>
-                            <p class="card-text">Condición: <strong>${auto.condicion}</strong></p>
-                        </div>
-                    </div>
-                </div>`;
-            });
-
-            contenedor.innerHTML = html;
-
-            // Inicializar Owl Carousel
-            $('.owl-autos-carousel').owlCarousel({
-                loop: false,
-                margin: 20,
-                nav: false,
-                autoplay: true,
-                autoplayTimeout: 4000,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: { items: 1 },
-                    576: { items: 2 },
-                    768: { items: 3 },
-                    992: { items: 4 }
-                }
-            });
+            autos = resultado.data;
+            renderAutos(autos);
         })
         .catch(error => {
             console.error('Error:', error);
             contenedor.innerHTML = `
-                <div class="text-center py-5">
+                <div class="col-12 text-center py-5">
                     <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
                     <h3 class="mt-3">Error al cargar los vehículos</h3>
                     <p class="text-muted">${error.message}</p>
@@ -629,6 +440,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </button>
                 </div>`;
         });
+
+    document.getElementById('btn-filtrar').addEventListener('click', aplicarFiltros);
 });
 </script>
 

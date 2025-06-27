@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>LimaWheels - Comparador de precios de vehiculos en Perú</title>
+    <title>LimaWheels - Comparador de precios de vehículos en Perú</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -28,63 +28,36 @@
     <link href="Principal/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <!-- Template comentario extra -->
     <link href="Principal/css/style.css" rel="stylesheet">
-
-
+    <style>
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .user-name {
+            font-weight: 500;
+            color: #333;
+            margin-right: 10px;
+        }
+        .nav-user {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-color: #00B98E;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<!-- Popup Cita -->
-<div id="popupCita" style="display:none; position:fixed; top:80px; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.4); z-index:2000; max-width:400px; width:90%;">
-  <h4 class="mb-3">Reserva tu cita</h4>
-  <div class="mb-3">
-    <label class="form-label">Fecha</label>
-    <input type="date" id="fechaCita" class="form-control">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Asesor</label>
-    <select id="asesorCita" class="form-select">
-      <option value="">Selecciona un asesor</option>
-      <option value="Santiago Ramos">Santiago Ramos</option>
-      <option value="Johan Peña">Johan Peña</option>
-      <option value="Brayan Campos">Brayan Campos</option>
-      <option value="Enzo Rodriguez">Enzo Rodriguez</option>
-      <option value="William Rivera">William Rivera</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Correo electrónico</label>
-    <input type="email" id="correoCita" class="form-control" placeholder="ejemplo@correo.com">
-  </div>
-  <button class="btn btn-success w-100 mb-2" onclick="enviarCita()">Confirmar Cita</button>
-  <button class="btn btn-secondary w-100" onclick="cerrarPopup()">Cancelar</button>
-</div>
-<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#00000080; z-index:1990;" onclick="cerrarPopup()"></div>
-
-<script>
-  function abrirPopup() {
-    document.getElementById('popupCita').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-  }
-
-  function cerrarPopup() {
-    document.getElementById('popupCita').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-  }
-
-  function enviarCita() {
-    const fecha = document.getElementById('fechaCita').value;
-    const asesor = document.getElementById('asesorCita').value;
-    const correo = document.getElementById('correoCita').value;
-
-    if (fecha && asesor && correo) {
-      alert(`Cita reservada con ${asesor} el ${fecha}. Te enviaremos un correo a ${correo}.`);
-      cerrarPopup();
-    } else {
-      alert("Por favor completa todos los campos.");
-    }
-  }
-</script>
-
 
 <body>
     <div id="banner-izquierdo">
@@ -105,194 +78,86 @@
         </div>
         <!-- Spinner End -->
 
-
         <!-- Navbar Start -->
-    <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
-    <a href="index.html" class="navbar-brand px-lg-4 m-0">
-        <h1 class="m-0 text-primary">LimaWheels</h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto px-lg-4">
-            <a href="index.html" class="nav-item nav-link">Inicio</a>
-            <a href="nosotros.html" class="nav-item nav-link active">Nosotros</a>
-            <a href="vehiculos.html" class="nav-item nav-link">Vehículos</a>
-            <a href="servicios.html" class="nav-item nav-link">Servicios</a>
-            <a href="contactos.html" class="nav-item nav-link">Contacto</a>
+        <div class="container-fluid bg-white sticky-top navbar navbar-expand-lg navbar-light py-3 shadow-sm">
+            <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 text-primary">LimaWheels</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto px-lg-4">
+                    <a href="indexusuario.html" class="nav-item nav-link">Inicio</a>
+                    <a href="nosotrosusuario.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="vehiculosusuario.html" class="nav-item nav-link">Vehículos</a>
+                    <a href="serviciosusuario.html" class="nav-item nav-link">Servicios</a>
+                    <a href="contactosusuario.html" class="nav-item nav-link active">Contacto</a>
 
-            <div class="d-flex align-items-center ms-lg-3">
-                <button class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    Iniciar Sesión
-                </button>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- Navbar End -->
-
-
-       
-        <!-- About Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                            <img class="img-fluid w-100" src="img/porshe2017.jpg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">El Mejor Lugar para Encontrar el Auto que Buscas</h1>
-                        <p class="mb-4">Somos la plataforma #1 para ayudarte a encontrar el auto ideal, ya sea nuevo o de segunda mano. Buscamos por ti en todos los portales, marcas y ubicaciones disponibles, para que no pierdas tiempo y consigas exactamente lo que necesitas.</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Accede a miles de opciones en un solo lugar</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Explora vehículos de todas las marcas y modelos</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Filtramos resultados según tu ubicación, presupuesto y preferencias</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Autos nuevos y usados disponibles en distintas plataformas confiables</p>
-                        <p class="mb-4">Busca fácil. Encuentra rápido. Compra con confianza.</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="nosotrosMas.html">LEER MÁS</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-
-        <!-- Call to Action Start -->
-       <div class="container-xxl py-5">
-    <div class="container">
-        <div class="bg-light rounded p-3">
-            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded w-100" src="img/juca.png" alt="">
-                    </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="mb-4">
-                            <h1 class="mb-3">Contacta con un asesor especializado</h1>
-                            <p>Te ponemos en línea con los mejores asesores de venta en busca de las características de tu auto soñado</p>
-                        </div>
-                        <a href="contactos.html" class="btn btn-primary py-3 px-4 me-2">
-                            <i class="fa fa-phone-alt me-2"></i>LLAMAR
+                    <!-- Área del usuario -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-2" style="font-size: 1.5rem;"></i>
+                            <span class="user-name"><?php echo $_SESSION['nombre_completo'] ?? 'Usuario'; ?></span>
                         </a>
-                        <a href="javascript:void(0)" onclick="abrirPopup()" class="btn btn-dark py-3 px-4">
-                            <i class="fa fa-calendar-alt me-2"></i>AGENDAR CITA
-                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="perfil.html" class="dropdown-item"><i class="fas fa-user me-2"></i> Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="bd/logout.php" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Navbar End -->
+
+
+<!-- SECCIÓN CONTACTO -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4 text-center">¿Tienes Preguntas?</h2>
+    <div class="row">
+      <!-- Info de contacto + Mapa -->
+      <div class="col-md-6 mb-4">
+        <h5>Información de Contacto</h5>
+        <p><i class="bi bi-geo-alt"></i> Calle Toulon 381, Lima, Perú</p>
+        <p><i class="bi bi-telephone"></i> +51 987 654 321</p>
+        <p><i class="bi bi-envelope"></i> autoinfo@limawheels.com</p>
+        <iframe class="w-100 rounded" height="300"
+          src="https://maps.google.com/maps?q=Calle%20Toulon%20381,%20Lima,%20Per%C3%BA&output=embed" allowfullscreen></iframe>
+      </div>
+      <!-- Formulario -->
+      <div class="col-md-6">
+        <form onsubmit="return validarFormulario()">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Tu Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre completo"
+                    maxlength="30" required>
+
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Tu Correo</label>
+                <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" maxlength="50" required>
+            </div>
+            <div class="mb-3">
+                <label for="asunto" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="asunto" placeholder="Motivo del mensaje" 
+                    maxlength="30" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí.../máx. 250"
+                        maxlength="250" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Enviar Mensaje</button>
+            </form>
+
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
-        <!-- Call to Action End -->
-
-
-        <!-- Team Start -->
-        <!-- Team Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3">Conoce a quienes lo hicieron posible</h1>
-            <p>Somos un equipo que unió esfuerzos para crear una plataforma pensada para ti.</p>
-        </div>
-        <div class="row g-4">
-            <!-- Agente 1 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid team-img" src="img/santi.jpeg" alt="Santiago Ramos">
-                        <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.linkedin.com/in/santiago-mijael-ramos-bera%C3%BAn/"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 mt-3">
-                        <h5 class="fw-bold mb-0">Santiago Ramos</h5>
-                        <small>___________________________________</small>
-                    </div>
-                </div>
-            </div>
-            <!-- Agente 2 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid team-img" src="img/johan.jpeg" alt="Johan Peña">
-                        <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.linkedin.com/in/johan-pena-espejo/"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 mt-3">
-                        <h5 class="fw-bold mb-0">Johan Peña</h5>
-                        <small>___________________________________</small>
-                    </div>
-                </div>
-            </div>
-            <!-- Agente 3 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid team-img" src="img/brayan.jpeg" alt="Brayan Campos">
-                        <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.linkedin.com/in/brayanelmercampossanchez/"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 mt-3">
-                        <h5 class="fw-bold mb-0">Brayan Campos</h5>
-                        <small>___________________________________</small>
-                    </div>
-                </div>
-            </div>
-            <!-- Agente 4 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid team-img" src="img/enzo.jpeg" alt="Enzo Rodriguez">
-                        <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.linkedin.com/in/enzo-rodriguez-749274347/"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 mt-3">
-                        <h5 class="fw-bold mb-0">Enzo Rodriguez</h5>
-                        <small>___________________________________</small>
-                    </div>
-                </div>
-            </div>
-            <!-- Agente 5 -->
-            <div class="col-lg-3 col-md-6 wow fadeInUp mx-auto" data-wow-delay="0.5s">
-                <div class="team-item rounded overflow-hidden">
-                    <div class="position-relative">
-                        <img class="img-fluid team-img" src="img/william.jpeg" alt="William Rivera">
-                        <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
-                            <a class="btn btn-square mx-1" href="https://www.linkedin.com/in/william-rivera-aa87b2236/"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 mt-3">
-                        <h5 class="fw-bold mb-0">William Rivera</h5>
-                        <small>___________________________________</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Team End -->
-
-<!-- CSS para imágenes del mismo tamaño -->
-<style>
-    .team-img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
-</style>
-
-        
-
-        <!-- Footer Start -->
+<!-- Footer Start -->
             <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
@@ -410,7 +275,6 @@
         </div>
     </div>
 
-
     <!-- Modal de Registro -->
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -459,6 +323,38 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </div>
+<script>
+function validarFormulario() {
+  const nombre = document.getElementById('nombre').value.trim();
+  const asunto = document.getElementById('asunto').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+
+  const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
+  if (!soloLetras.test(nombre)) {
+    alert("El nombre solo debe contener letras.");
+    return false;
+  }
+
+  if (nombre.length === 0 || nombre.length > 30) {
+    alert("El nombre es obligatorio y no debe exceder 30 caracteres.");
+    return false;
+  }
+
+  if (asunto.length === 0) {
+    alert("El asunto no puede estar vacío.");
+    return false;
+  }
+
+  if (mensaje.length === 0 || mensaje.length > 250) {
+    alert("El mensaje es obligatorio y debe tener hasta 250 caracteres.");
+    return false;
+  }
+
+  return true;
+}
+</script>
+
 
 </body>
 

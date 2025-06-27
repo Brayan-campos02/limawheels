@@ -83,7 +83,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param('ssss', $nombre_completo, $apellido_completo, $correo_electronico, $contrasena_hash);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registro exitoso.'); window.location.href = '/trabajofinal/limawheels/indexusuario.html';</script>";
+        echo "<script>
+            alert('Registro exitoso.');
+            let pathParts = window.location.pathname.split('/');
+            // Quitamos el último elemento (nombre del archivo PHP o HTML)
+            pathParts.pop();
+            // Si termina en 'bd', también lo quitamos
+            if (pathParts[pathParts.length - 1] === 'bd') {
+                pathParts.pop();
+            }
+            // Construimos nueva ruta
+            let newPath = pathParts.join('/') + '/indexusuario.html';
+            window.location.href = newPath;
+        </script>";
         exit();
     } else {
         echo "<script>alert('Error al crear la cuenta: " . $conn->error . "'); window.history.back();</script>";
