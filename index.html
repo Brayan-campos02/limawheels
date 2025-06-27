@@ -35,6 +35,16 @@
 </head>
 
 <body>
+    <!-- Contenedor del banner izquierdo -->
+    <div id="banner-izquierdo">
+        <div class="anuncio-carrusel">
+            <img src="img/publicidad1.png" alt="Anuncio 1">
+            <img src="img/publicidad2.png" alt="Anuncio 2">
+            <img src="img/publicidad3.png" alt="Anuncio 3">
+        </div>
+    </div>
+
+
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -109,20 +119,15 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h2 class="section-title">Promociones Especiales</h2>
+                <h2 class="section-title">¡Todos Reunidos para Ti!</h2>
                 <p class="section-description">
-                    ¡Aprovecha nuestras ofertas exclusivas en vehículos seleccionados!
+                    ¡Hecha un vistazo a nuestro <a href="vehiculos.html">catálogo</a>!
                 </p>
             </div>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="contenedor-autos">
-                <!-- Placeholder de carga -->
-                <div class="col-12 text-center py-5">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Cargando...</span>
-                    </div>
-                    <p class="mt-2">Cargando vehículos...</p>
-                </div>
+
+            <div class="owl-carousel owl-autos-carousel wow fadeInUp" data-wow-delay="0.1s" id="contenedor-autos">
+            
             </div>
         </div>
     </div>
@@ -292,51 +297,51 @@
 
         <!-- Testimonial Start -->
         <div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="mb-3">¡Lo que opinan nuestros usuarios!</h1>
-            <p>Con nuestra plataforma puedes comparar precios y ofertas de distintas concesionarias en un solo lugar. Ya no necesitas visitar múltiples páginas para encontrar el mejor precio o la marca ideal. Nosotros lo hacemos por ti.</p>
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">¡Lo que opinan nuestros usuarios!</h1>
+                    <p>Con nuestra plataforma puedes comparar precios y ofertas de distintas concesionarias en un solo lugar. Ya no necesitas visitar múltiples páginas para encontrar el mejor precio o la marca ideal. Nosotros lo hacemos por ti.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>Gracias a esta plataforma encontré el auto que quería al mejor precio, sin tener que buscar en muchas páginas.</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/foto1.jpeg" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Carlos Ramírez</h6>
+                                    <small>Ingeniero</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>Es muy fácil de usar y te muestra todas las opciones disponibles en un solo clic. ¡Altamente recomendada!</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/fotom1.jpeg" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Lucía Fernández</h6>
+                                    <small>Administradora</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>Encontré mi nuevo auto en menos de una semana. La comparación de precios me ayudó a tomar una mejor decisión.</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/foto3.png" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Diego Torres</h6>
+                                    <small>Diseñador Gráfico</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-            <div class="testimonial-item bg-light rounded p-3">
-                <div class="bg-white border rounded p-4">
-                    <p>Gracias a esta plataforma encontré el auto que quería al mejor precio, sin tener que buscar en muchas páginas.</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded" src="img/foto1.jpeg" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6 class="fw-bold mb-1">Carlos Ramírez</h6>
-                            <small>Ingeniero</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-light rounded p-3">
-                <div class="bg-white border rounded p-4">
-                    <p>Es muy fácil de usar y te muestra todas las opciones disponibles en un solo clic. ¡Altamente recomendada!</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded" src="img/fotom1.jpeg" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6 class="fw-bold mb-1">Lucía Fernández</h6>
-                            <small>Administradora</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-light rounded p-3">
-                <div class="bg-white border rounded p-4">
-                    <p>Encontré mi nuevo auto en menos de una semana. La comparación de precios me ayudó a tomar una mejor decisión.</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid flex-shrink-0 rounded" src="img/foto2.jpg" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6 class="fw-bold mb-1">Diego Torres</h6>
-                            <small>Diseñador Gráfico</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
         <!-- Testimonial End -->
         
@@ -349,7 +354,7 @@
                 <h5 class="text-white mb-4">Contáctanos</h5>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Calle Toulon 381, Lima, Perú</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+51 987 654 321</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>batmaninfo@limawheels.com</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>autoinfo@limawheels.com</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="https://x.com/LimaWheels" title="X">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="height: 16px; width: 16px; fill: white;">
@@ -508,35 +513,37 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const contenedor = document.getElementById('contenedor-autos');
-    
+
     fetch('bd/autos.php')
         .then(response => {
             if (!response.ok) throw new Error('Error en el servidor');
             return response.json();
         })
         .then(resultado => {
-            // Verifica si hay datos válidos
             if (!resultado.data || !Array.isArray(resultado.data)) {
                 throw new Error('Formato de datos incorrecto');
             }
-            
+
             const autos = resultado.data;
-            
+
             if (autos.length === 0) {
-                contenedor.innerHTML = '<div class="col-12 text-center py-5"><p>No hay vehículos disponibles</p></div>';
+                contenedor.innerHTML = `
+                    <div class="text-center py-5">
+                        <p>No hay vehículos disponibles</p>
+                    </div>`;
                 return;
             }
-            
+
             let html = '';
             autos.forEach(auto => {
                 html += `
-                <div class="col">
+                <div class="item">
                     <div class="card h-100 shadow-sm"
-                    onmouseover="this.style.border='1px solid #00B98E'; this.style.cursor='pointer'"
-                    onmouseout="this.style.borderColor=''; this.style.cursor='default'"
-                    onclick="window.location.href='${auto.url}'">
+                        onmouseover="this.style.border='1px solid #00B98E'; this.style.cursor='pointer'"
+                        onmouseout="this.style.borderColor=''; this.style.cursor='default'"
+                        onclick="window.location.href='${auto.url}'">
                         <img src="${auto.imagen}" class="card-img-top" alt="${auto.marca} ${auto.modelo}" style="height: 180px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title">${auto.marca} ${auto.modelo}</h5>
@@ -546,12 +553,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>`;
             });
+
             contenedor.innerHTML = html;
+
+            // Inicializar Owl Carousel
+            $('.owl-autos-carousel').owlCarousel({
+                loop: false,
+                margin: 20,
+                nav: false,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    768: { items: 3 },
+                    992: { items: 4 }
+                }
+            });
         })
         .catch(error => {
             console.error('Error:', error);
             contenedor.innerHTML = `
-                <div class="col-12 text-center py-5">
+                <div class="text-center py-5">
                     <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
                     <h3 class="mt-3">Error al cargar los vehículos</h3>
                     <p class="text-muted">${error.message}</p>

@@ -107,44 +107,44 @@
         <!-- Header End -->
 
 
-         <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
-    <div class="container">
-        <div class="row g-2">
-            <div class="col-md-10">
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
                 <div class="row g-2">
-                    <div class="col-md-3">
-                        <input type="text" id="filtro-marca" class="form-control border-0 py-3" placeholder="Marca (ej. Toyota)">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <input type="text" id="filtro-marca" maxlength="15" class="form-control border-0 py-3" placeholder="Marca (ej. Toyota)">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" id="filtro-modelo" maxlength="15" class="form-control border-0 py-3" placeholder="Modelo (ej. Agya)">
+                            </div>
+                            <div class="col-md-3">
+                                <select id="filtro-condicion" class="form-select border-0 py-3">
+                                    <option value="">Todas las condiciones</option>
+                                    <option value="Nuevo">Nuevo</option>
+                                    <option value="Seminuevo">Seminuevo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" id="filtro-precio-max" class="form-control border-0 py-3" placeholder="Precio máx. (ej. 30000)" max="999999">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <input type="text" id="filtro-modelo" class="form-control border-0 py-3" placeholder="Modelo (ej. Agya)">
-                    </div>
-                    <div class="col-md-3">
-                        <select id="filtro-condicion" class="form-select border-0 py-3">
-                            <option value="">Todas las condiciones</option>
-                            <option value="Nuevo">Nuevo</option>
-                            <option value="Usado">Usado</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" id="filtro-precio-max" class="form-control border-0 py-3" placeholder="Precio máx. (ej. 30000)">
+                    <div class="col-md-2">
+                        <button id="btn-filtrar" class="btn btn-dark border-0 w-100 py-3">Buscar</button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <button id="btn-filtrar" class="btn btn-dark border-0 w-100 py-3">Buscar</button>
-            </div>
         </div>
-    </div>
-</div>
 
 
 
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h2 class="section-title">Promociones Especiales</h2>
+                <h2 class="section-title">Catálogo de Vehículos</h2>
                 <p class="section-description">
-                    ¡Aprovecha nuestras ofertas exclusivas en vehículos seleccionados!
+                    ¡Encuentra tu próximo auto entre múltiples fuentes en una sola vista!
                 </p>
             </div>
 
