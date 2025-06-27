@@ -53,12 +53,7 @@
                         <h4 class="mb-0">Mi Perfil</h4>
                     </div>
                     <div class="card-body">
-                        <?php if (!empty($datos_usuario['mensaje'])): ?>
-                            <div class="alert alert-success"><?= $datos_usuario['mensaje'] ?></div>
-                        <?php endif; ?>
-                        <?php if (!empty($datos_usuario['error'])): ?>
-                            <div class="alert alert-danger"><?= $datos_usuario['error'] ?></div>
-                        <?php endif; ?>
+                        
 
                         <div class="mb-4">
                             <h5>Información Personal</h5>
@@ -66,23 +61,23 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" value="<?= $datos_usuario['nombre_completo'] ?>" readonly>
+                                    <input type="text" class="form-control" value="" >
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Apellidos</label>
-                                    <input type="text" class="form-control" value="<?= $datos_usuario['apellido_completo'] ?>" readonly>
+                                    <input type="text" class="form-control" value="" >
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" value="<?= $datos_usuario['correo_electronico'] ?>" readonly>
+                                <input type="email" class="form-control" value="" >
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Contraseña (hash)</label>
+                            
                                 <div class="input-group">
-                                    <input type="text" class="form-control hashed-password" value="<?= $datos_usuario['contrasena'] ?>" readonly>
+                                    
                                 </div>
-                                <small class="text-muted">Esta es la versión encriptada de tu contraseña</small>
+                                
                             </div>
                         </div>
 
